@@ -1,3 +1,2 @@
-import {logged} from "./login_test";
-
-console.log(logged);
+const logged_in = localStorage.getItem("user");
+console.log(logged_in);
