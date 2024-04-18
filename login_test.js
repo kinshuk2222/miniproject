@@ -1,8 +1,9 @@
 const element = document.getElementById("BUTTON");
-const fs = require("fs");
+
 var userpass = {
     'kinshukthapa23@gmail.com':'password'
 };
+var logged;
 
 element.addEventListener("click",function(){
     var username = document.getElementById("user").value;
@@ -11,8 +12,9 @@ element.addEventListener("click",function(){
     console.log(password);
     if (userpass[username]==password){
         alert("Login Successful.")
-        fs.readFile('currentlyloggedin.txt', (err, data) => {if (err) throw err;
-        console.log(data);});
+        logged=username;
+        console.log(logged);
+        window.location.replace='project.html';
     }
     else{
         document.getElementById("user").value="";
