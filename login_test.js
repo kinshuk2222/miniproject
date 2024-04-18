@@ -14,7 +14,11 @@ element.addEventListener("click",function(){
         alert("Login Successful.")
         logged=username;
         console.log(logged);
-        window.location.replace='project.html';
+        var blob = new Blob([logged], {
+            type: "text/plain;charset=utf-8"
+           });
+        
+        window.location.href='https://zany-enigma-976r6gv4757q37q5v-5500.app.github.dev/project.html';
     }
     else{
         document.getElementById("user").value="";
