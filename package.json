@@ -1,5 +1,10 @@
 {
   "dependencies": {
+<<<<<<< HEAD
     "fs": "^0.0.1-security"
+=======
+    "@emailjs/browser": "^4.3.3",
+    "node": "^18.20.2"
+>>>>>>> 767c756366e2976f7bea7626caa9a601b15e6771
   }
 }
