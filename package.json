@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "@emailjs/browser": "^4.3.3",
+    "node": "^18.20.2"
+  }
+}

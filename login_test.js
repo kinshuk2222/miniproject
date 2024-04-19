@@ -13,12 +13,9 @@ element.addEventListener("click",function(){
     if (userpass[username]==password){
         alert("Login Successful.")
         logged=username;
+        localStorage.setItem("user",username);
         console.log(logged);
-        var blob = new Blob([logged], {
-            type: "text/plain;charset=utf-8"
-           });
-        
-        window.location.href='https://zany-enigma-976r6gv4757q37q5v-5500.app.github.dev/project.html';
+        window.location.href='project.html';
     }
     else{
         document.getElementById("user").value="";

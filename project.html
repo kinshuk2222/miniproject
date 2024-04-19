@@ -3,75 +3,277 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alumini Portal</title>
-
+    <title>Alumni Portal</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
-        h1{
-            
-            color: black;
-            font-family: 'Times New Roman', Times, serif;
-            text-align: left;
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
         }
-        div {
-  width: 1200px;
-  border: 15px solid burlywood;
-  padding: 50px;
-  margin: 20px;
-  background-color: burlywood;
-}
-
-ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  background-color: #333;
-}
-
-li {
-  float: left;
-}
-
-li a {
-  display: block;
-  color: white;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-}
-
-/* Change the link color to #111 (black) on hover */
-li a:hover {
-  background-color: #111;
-}
-
-.active {
-  background-color: #04AA6D;
-}
+        .navbar {
+            background-color: #003366;
+            color: #fff;
+            overflow: hidden;
+            padding: 10px 20px;
+        }
+        .navbar a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 20px;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        .navbar a:hover {
+            color: #ffd700;
+        }
+        .navbar .brand {
+            color: #ffd700;
+            font-size: 24px;
+            font-weight: 700;
+            margin-right: 50px;
+        }
+        .navbar .user {
+            float: right;
+            color: #ffd700;
+            font-weight: 500;
+        }
+        .content {
+            padding: 20px;
+            background-color: #fff;
+            margin: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1, h2, h3 {
+            color: #003366;
+        }
+        p {
+            color: #666;
+            line-height: 1.6;
+        }
+        button {
+            background-color: #ffd700;
+            color: #003366;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+            font-size: 16px;
+            font-weight: 500;
+        }
+        button:hover {
+            background-color: #f2c200;
+        }
+        .footer {
+            background-color: #003366;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+        }
+        .footer p {
+            margin: 0;
+        }
+        .hero {
+            background-image: url('https://www.yccealumni.com/images/hero-bg.jpg');
+            background-size: cover;
+            background-position: center;
+            color: #fff;
+            text-align: center;
+            padding: 100px 20px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+        }
+        .hero h1 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+        .hero p {
+            font-size: 18px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .slider-container {
+            overflow: hidden;
+            white-space: nowrap;
+            margin-bottom: 20px;
+        }
+        .slider {
+            display: inline-block;
+            vertical-align: top;
+            white-space: normal;
+            width: calc(50% - 10px);
+            margin-right: 20px;
+            transition: transform 0.5s ease;
+        }
+        .profile {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .profile img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin-bottom: 10px;
+        }
+        .profile h3 {
+            margin-bottom: 5px;
+            color: #003366;
+        }
+        .profile p {
+            color: #777;
+        }
+        .news-gallery {
+            margin-top: 20px;
+        }
+        .news-gallery h2 {
+            margin-bottom: 10px;
+            color: #003366;
+        }
+        .news-gallery p {
+            color: #666;
+        }
+        .gallery-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        .gallery-item {
+            width: calc(33.33% - 10px);
+            margin-bottom: 20px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .gallery-item img {
+            width: 100%;
+            display: block;
+            border-radius: 10px;
+        }
     </style>
 </head>
-
 <body>
-   
-        <div>
-             
-                    <h1>Alumini Portal</h1><br>
 
-                    <hr>
-                    <ul>
-                        <li><a href="default.asp">Home</a></li>
-                        <li><a href="news.asp">News</a></li>
-                        <li><a href="contact.asp">Contact</a></li>
-                        <li><a href="about.asp">About</a></li>
-                      </ul>
-                  
-               
+<div class="navbar">
+    <a href="#" class="brand">Alumni Portal</a>
+    <a href="#news" onclick="scrollToSection('#news')">News</a>
+    <a href="#gallery" onclick="scrollToSection('#gallery')">Gallery</a>
+    <div class="user">
+        <span id="login"></span>
+        <button onclick="logout()">Logout</button>
+    </div>
+</div>
+
+<div class="hero">
+    <h1>Connecting Alumni Worldwide</h1>
+    <p>Welcome to our alumni portal, where you can stay connected, discover opportunities, and contribute to the community.</p>
+</div>
+
+<div class="content">
+    <div class="slider-container">
+        <div class="slider">
+            <h2>Upcoming Events</h2>
+            <div class="profile">
+                <h3>Annual Alumni Reunion</h3>
+                <p>Date: April 30, 2024</p>
+                <p>Location: Alumni Hall, New York</p>
+                <p>Join us for our annual alumni reunion. Connect with old friends, network with fellow alumni, and enjoy a night of celebration!</p>
+            </div>
+            <div class="profile">
+                <h3>Career Fair</h3>
+                <p>Date: May 15, 2024</p>
+                <p>Location: Convention Center, Chicago</p>
+                <p>Explore job opportunities, connect with recruiters, and take the next step in your career at our annual career fair.</p>
+            </div>
         </div>
-  
-    <main>
-        
-    </main>
-    <script src="test.js" type="module"> </script>
-</body>
+        <div class="slider">
+            <h2>Alumni Profiles</h2>
+            <div class="profile">
+                <img src="https://via.placeholder.com/150" alt="Profile Picture">
+                <h3>John Doe</h3>
+                <p>Class of 2010</p>
+                <p>Software Engineer</p>
+            </div>
+            <div class="profile">
+                <img src="https://via.placeholder.com/150" alt="Profile Picture">
+                <h3>Jane Smith</h3>
+                <p>Class of 2015</p>
+                <p>Marketing Manager</p>
+            </div>
+        </div>
+    </div>
 
+    <div id="news" class="news-gallery">
+        <h2>News</h2>
+        <p>Stay updated with the latest news and events happening in our alumni community.</p>
+        <div class="gallery-container">
+            <div class="gallery-item">
+                <img src="https://via.placeholder.com/300" alt="News 1">
+                <h3>News Title 1</h3>
+                <p>Description of news article 1.</p>
+            </div>
+            <div class="gallery-item">
+                <img src="https://via.placeholder.com/300" alt="News 2">
+                <h3>News Title 2</h3>
+                <p>Description of news article 2.</p>
+            </div>
+            <div class="gallery-item">
+                <img src="https://via.placeholder.com/300" alt="News 3">
+                <h3>News Title 3</h3>
+                <p>Description of news article 3.</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="gallery" class="news-gallery">
+        <h2>Gallery</h2>
+        <p>Explore memories and moments captured in our alumni photo gallery.</p>
+        <div class="gallery-container">
+            <div class="gallery-item">
+                <img src="https://via.placeholder.com/300" alt="Gallery 1">
+                <h3>Gallery Photo 1</h3>
+                <p>Description of gallery photo 1.</p>
+            </div>
+            <div class="gallery-item">
+                <img src="https://via.placeholder.com/300" alt="Gallery 2">
+                <h3>Gallery Photo 2</h3>
+                <p>Description of gallery photo 2.</p>
+            </div>
+            <div class="gallery-item">
+                <img src="https://via.placeholder.com/300" alt="Gallery 3">
+                <h3>Gallery Photo 3</h3>
+                <p>Description of gallery photo 3.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="footer">
+    <p>Contact us: alumni@portal.com | Phone: +1 (123) 456-7890</p>
+</div>
+
+<script>
+    function logout() {
+        // Implement logout functionality here
+        alert("Logout button clicked!");
+        localStorage.setItem("user","");
+        window.location.href="/login.html";
+    }
+
+    function scrollToSection(sectionId) {
+        const section = document.querySelector(sectionId);
+        section.scrollIntoView({ behavior: 'smooth' });
+    }
+    const login = document.getElementById('login');
+    login.innerHTML = "Welcome,<strong> "+(localStorage.getItem("user"))+" </strong>!";
+</script>
+
+</body>
+<script>
+  
+</script>
 </html>
